@@ -87,12 +87,19 @@ validation_tree.make_map(validation, 'ltiFeatures')
 
 df_training_conversion_proportion = pd.DataFrame(index=interest_topics.index)
 df_training_conversion_proportion['conversion_proportion'] = [
-np.sum([training_set.loc[userID, 'inAudience'] for userID in
+np.mean([training_set.loc[userID, 'inAudience'] for userID in
 training_tree.get_interested_users(get_topic_name(i))])
 for i in interest_topics.index
 ]
 
-df_training_conversion_proportion
+df_validation_conversion_proportion = pd.DataFrame(index=interest_topics.index)
+df_validation_conversion_proportion['conversion_proportion'] = [
+np.mean([validation.loc[userID, 'inAudience'] for userID in
+validation_tree.get_interested_users(get_topic_name(i))])
+for i in interest_topics.index
+]
+
+validation_tree.get_interested_users('/Arts & Entertainment')
 
 # this function makes a wide-form dataframe where each column is a different topic for a userID
 def make_topic_table(df, feature_name):
