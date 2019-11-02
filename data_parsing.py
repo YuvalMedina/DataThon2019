@@ -99,7 +99,7 @@ validation_tree.get_interested_users(get_topic_name(i))])
 for i in interest_topics.index
 ]
 
-validation_tree.get_interested_users('/Arts & Entertainment')
+df_validation_conversion_proportion
 
 # this function makes a wide-form dataframe where each column is a different topic for a userID
 def make_topic_table(df, feature_name):
